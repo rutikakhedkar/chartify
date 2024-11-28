@@ -28,7 +28,7 @@ const Login = () => {
     
 
     try {
-      const response = await fetch(`http://localhost:5000/api/register/login`, {
+      const response = await fetch(`https://chartify-duia-mdmqnbe9h-rutikakhedkars-projects.vercel.app/api/register/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

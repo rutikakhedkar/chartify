@@ -11,7 +11,7 @@ const FriendlistProvider = ({ children }) => {
     const [userMessages, setUserMessages] = useState();
    const getUsersData = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/register/getusers`, {
+      const response = await fetch(`https://chartify-duia-mdmqnbe9h-rutikakhedkars-projects.vercel.app/api/register/getusers`, {
         method: "GET",
       });
       if (response.ok) {
