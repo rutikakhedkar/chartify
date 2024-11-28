@@ -19,7 +19,7 @@ app.use(express.json());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: "https://chartify-3kq9pdojp-rutikakhedkars-projects.vercel.app/login",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
   },
