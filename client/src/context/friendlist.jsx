@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState, useContext } from 'react';
 import { io } from "socket.io-client";
-const socket = io("http://localhost:5000");
+const socket = io("https://chartify-duia-b1lylytsk-rutikakhedkars-projects.vercel.app");
 // Create the context
 const FriendlistContext = createContext();
 
