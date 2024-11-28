@@ -1,0 +1,6 @@
+.background {
+    background-image: url('./assets/Images/bg.jfif'); /* Adjust path if needed */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+  }
