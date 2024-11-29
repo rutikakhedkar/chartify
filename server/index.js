@@ -19,7 +19,7 @@ app.use(express.json());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://chartify-3kq9pdojp-rutikakhedkars-projects.vercel.app",
+    origin: "https://chartify-zeta.vercel.app",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
   },
