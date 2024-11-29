@@ -39,7 +39,7 @@ const Chat = () => {
       // };
 
       try {
-        const response = await fetch("https://chartify-duia-mdmqnbe9h-rutikakhedkars-projects.vercel.app/api/chat/createchat", {
+        const response = await fetch("https://chartify-duia.vercel.app/api/chat/createchat", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

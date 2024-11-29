@@ -39,7 +39,7 @@ const Register = () => {
     e.preventDefault();
     console.log(formData)
     try{
-      const response = await fetch(`https://chartify-duia-mdmqnbe9h-rutikakhedkars-projects.vercel.app/api/register/createuser`, {
+      const response = await fetch(`https://chartify-duia.vercel.app/api/register/createuser`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
