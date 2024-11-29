@@ -28,7 +28,7 @@ const Login = () => {
     
 
     try {
-      const response = await fetch(`https://chartify-duia.vercel.app/api/register/login`, {
+      const response = await fetch(`https://chartify-duia.vercel.app/api/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
