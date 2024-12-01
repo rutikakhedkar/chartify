@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState, useContext } from 'react';
-import { io } from "socket.io-client";
-const socket = io("https://chartify-duia.vercel.app");
+// import { io } from "socket.io-client";
+// const socket = io("https://chartify-duia.vercel.app");
 // Create the context
 const FriendlistContext = createContext();
 
@@ -11,7 +11,7 @@ const FriendlistProvider = ({ children }) => {
     const [userMessages, setUserMessages] = useState();
    const getUsersData = async () => {
     try {
-      const response = await fetch(`https://chartify-duia-mdmqnbe9h-rutikakhedkars-projects.vercel.app/api/register/getusers`, {
+      const response = await fetch(`https://chartify-h961.vercel.app/api/register/getusers`, {
         method: "GET",
       });
       if (response.ok) {
@@ -26,7 +26,7 @@ const FriendlistProvider = ({ children }) => {
 
   const getUsersMessage = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/chat/getchat`, {
+      const response = await fetch(`https://chartify-h961.vercel.app/api/chat/getchat`, {
         method: "GET",
       });
       if (response.ok) {
