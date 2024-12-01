@@ -12,9 +12,9 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: 'https://chartify-zeta.vercel.app', // Specifies the allowed origin
-    methods: ["POST", "GET"], // Should be `methods` (plural) not `method`
-    credentials: true // Allows credentials like cookies, headers, or TLS certificates to be sent in requests
+    origin: 'https://chartify-zeta.vercel.app', // Add allowed origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Include all necessary methods
+    credentials: true // Allow credentials like cookies
 }));
 
 
