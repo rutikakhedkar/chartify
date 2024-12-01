@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 // cors
-const server = http.createServer(app);
+// const server = http.createServer(app);
 // const io = new Server(server, {
 //   cors: {
 //     origin: "https://chartify-zeta.vercel.app",
