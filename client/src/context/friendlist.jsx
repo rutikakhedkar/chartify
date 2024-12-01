@@ -41,22 +41,22 @@ const FriendlistProvider = ({ children }) => {
   
   // console.log(userMessages);
 
-    useEffect(() => {
-        getUsersData();
-        getUsersMessage();
-    },[]);
+    // useEffect(() => {
+    //     getUsersData();
+    //     getUsersMessage();
+    // },[]);
 
       const handleUserMessage =()=>{
         console.log("socket works")
         getUsersMessage();
       }
 
-    useEffect(()=>{
-      socket.on("messageSent",handleUserMessage);
-      return()=>{
-      socket.off("messageSent",handleUserMessage);
-      }
-    })
+    // useEffect(()=>{
+    //   socket.on("messageSent",handleUserMessage);
+    //   return()=>{
+    //   socket.off("messageSent",handleUserMessage);
+    //   }
+    // })
 
     return (
         <FriendlistContext.Provider value={{ usersData, getUsersData,username,setUsername,getUsersMessage, userMessages }}>
