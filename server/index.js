@@ -14,6 +14,11 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
+app.use(cors({
+    origin: 'https://chartify-zeta.vercel.app', // Specifies the allowed origin
+    methods: ["POST", "GET"], // Should be `methods` (plural) not `method`
+    credentials: true // Allows credentials like cookies, headers, or TLS certificates to be sent in requests
+}));
 
 // cors
 // const server = http.createServer(app);
@@ -40,7 +45,7 @@ app.use(express.json());
 //     console.log("User disconnected:", socket.id);
 //   });
 // });
-app.use(cors());
+
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {
