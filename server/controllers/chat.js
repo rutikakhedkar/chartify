@@ -60,7 +60,7 @@ const createChat = async (req, res) => {
     });
      
     res.status(201).json({ message: "Message added successfully", chat });
-    socket.emit("message", chat);
+    // socket.emit("message", chat);
   } catch (error) {
     console.error("Error creating chat message:", error);
     res.status(500).json({ message: "Server error", error });
