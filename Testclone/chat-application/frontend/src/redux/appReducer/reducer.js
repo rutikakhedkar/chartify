@@ -310,7 +310,6 @@ export const reducer = (state = initialState, action) => {
                 notficationsMessages: [...state.notficationsMessages, payload],
             };
 
-
         default:
             return state;
     }

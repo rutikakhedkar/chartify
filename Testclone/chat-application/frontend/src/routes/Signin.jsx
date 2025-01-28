@@ -8,6 +8,7 @@ import { signInAccount } from '../redux/authReducer/action';
 import CustomInput from '../components/CommonComponents/CustomInput';
 import CustomPasswordInput from '../components/CommonComponents/CustomPasswordInput';
 import logo from "../assets/logo.png"
+import bg from "../assets/bg.jpg"
 
 const Signin = () => {
 
@@ -70,13 +71,15 @@ const Signin = () => {
 
 
   return (
-    <section className="bg-primary-100 dark:bg-primary-900">
+    <section className="dark:bg-primary-900" style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-primary-900 dark:text-white">
-          <img className="w-12 h-12 mr-2" src={logo} alt="logo" />
-          Chat Application
-        </a>
         <div className="w-full bg-primary-50  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-primary-800 dark:border-primary-700">
+                <div className='flex justify-center'>
+                  <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-primary-900 dark:text-white">
+                    <img className="w-12 h-12 mr-2" src={logo} alt="logo" />
+                    Chartify
+                  </a>
+                </div>
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-primary-900 md:text-2xl dark:text-white">
               Sign in to continue

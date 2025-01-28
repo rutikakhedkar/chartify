@@ -5,6 +5,9 @@ import Signin from './Signin'
 import Home from './Home';
 import PrivateRoute from '../components/PrivateRoute';
 import PageNotFound from './PageNotFound';
+import Emoji3D from './Emoji3D';
+
+
 
 export default function AllRoutes() {
   return (
@@ -14,9 +17,9 @@ export default function AllRoutes() {
 <Route path='/' element={ <PrivateRoute> <Home /> </PrivateRoute> } />
 <Route path='/signup' element={<Signup />} />
 <Route path='/signin' element={<Signin />} />
+<Route path='/3demoji' element={<Emoji3D/>} />
 <Route path="*" element={ <PageNotFound /> }></Route>
 </Routes>
-
 </>
   )
 }

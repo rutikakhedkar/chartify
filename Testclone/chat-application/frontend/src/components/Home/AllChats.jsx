@@ -13,28 +13,24 @@ export default function AllChats() {
   const addMembersInGroupSuccess = useSelector((state) => state.appReducer.addMembersInGroupSuccess);
   const isRenameGroupSuccess = useSelector((state) => state.appReducer.isRenameGroupSuccess);
   const removeMembersFromGroupSuccess = useSelector((state) => state.appReducer.removeMembersFromGroupSuccess);
-  
+
 
   useEffect(() => {
     dispatch(getChats());
-    
+
   }, [createGroupChatSuccess, singleUserChatsuccess, addMembersInGroupSuccess, removeMembersFromGroupSuccess, isRenameGroupSuccess])
 
   return (
-    <div className="flex flex-col flex-grow p-2 mt-3 ">
-
+    <div className="flex flex-col flex-grow p-2 mt-3">
       <CreateGroupChat />
 
-<div className='bg-primary-800 mt-3 rounded-lg p-2  '>
-
-<div className='max-h-[72vh] p-2 overflow-y-auto'>
-      {allChat?.map((item) => (
-
-        <DisplayChatCard item={item} key={item.id} />
-
-      ))}
-</div>
-</div>
+      <div className='bg-primary-800 mt-3 rounded-lg p-2  '>
+        <div className='max-h-[72vh] p-2 overflow-y-auto'>
+          {allChat?.map((item) => (
+            <DisplayChatCard item={item} key={item.id} />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
