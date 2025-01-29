@@ -12,9 +12,8 @@ export default function ChatHeader() {
   const selectedUser = selectedUserForChat.users.find(user => user._id !== loginUser._id);
 
   return (
-    <div className='flex mt-2 justify-between items-center h-12 text-primary-50 bg-primary-800 rounded-tl-lg rounded-tr-lg px-5'>
-
-      <div className="flex items-center pt-2 ml-2 gap-2">
+    <div className='flex mt-[8%] justify-between items-center h-12 text-black bg-[#fff]  border-gray-200 border-b-2 px-5'>
+      <div className="flex items-center gap-2 mb-4">
         <div className={`bg-primary-50 rounded-full w-9 h-9 flex items-center justify-center`}>
           <img className="w-8 h-8 rounded-full" src={selectedUserForChat.isGroupChat ? "https://cdn-icons-png.flaticon.com/512/2043/2043173.png" : selectedUser.pic} alt={"not found"} />
         </div>
@@ -25,7 +24,6 @@ export default function ChatHeader() {
         {selectedUserForChat.isGroupChat && (<ChatDetails />)}
         {selectedUserForChat.isGroupChat && selectedUserForChat.groupAdmin === loginUser._id ? (<UpdateGroup />) : ("")}
       </div>
-
     </div>
   );
 }

@@ -13,16 +13,16 @@ export default function Message({ item }) {
         {/* Text */}
         <div className={`${parsedData._id !== item.sender._id ? "text-left " : "text-right"}`}>
           <div
-            className={`p-2 bg-primary-800 text-primary-50 text-sm max-w-lg break-words ${parsedData._id !== item.sender._id ? 'rounded-r-lg rounded-tl-lg' : 'rounded-l-lg rounded-tr-lg'}`}
+            className={`p-2 ${parsedData._id !== item.sender._id ? "bg-[#5f65e2] rounded-r-lg rounded-tl-lg text-white": "bg-primary-50 rounded-l-lg rounded-tr-lg text-black" } shadow-md z-10  text-sm max-w-lg break-words`}
             data-kt-element="message-text"
           >
             {item.message}
           </div>
           {/* Time */}
-          <span className="text-primary-50 text-xs px-1 ">{createdAt}</span>
+          <span className="text-black text-xs px-1 ">{createdAt}</span>
         </div>
         {/* Avatar */}
-        <div className={`bg-primary-50 rounded-full w-9 h-9 flex items-center justify-center`}>
+        <div className={`bg-primary-50 border-gray-400 rounded-full w-9 h-9 flex items-center justify-center`}>
           <img
             alt="Pic"
             src={item.sender.pic}

@@ -44,7 +44,7 @@ const Home = () => {
         {isLoading ? (
           <p></p>
         ) : (
-          <ChatBox />
+          <ChatBox/>
         )}
       </div>
     </div>

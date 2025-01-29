@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getChats } from '../../redux/appReducer/action';
 import CreateGroupChat from './AllChats/CreateGroupChat';
 import DisplayChatCard from './AllChats/DisplayChatCard';
+
 
 export default function AllChats() {
 
@@ -13,6 +14,7 @@ export default function AllChats() {
   const addMembersInGroupSuccess = useSelector((state) => state.appReducer.addMembersInGroupSuccess);
   const isRenameGroupSuccess = useSelector((state) => state.appReducer.isRenameGroupSuccess);
   const removeMembersFromGroupSuccess = useSelector((state) => state.appReducer.removeMembersFromGroupSuccess);
+  const [selectedChat, setSelectedChat] = useState(null); 
 
 
   useEffect(() => {
@@ -26,7 +28,12 @@ export default function AllChats() {
      
         <div className='mt-6 overflow-y-auto'>
           {allChat?.map((item) => (
-            <DisplayChatCard item={item} key={item.id} />
+             <DisplayChatCard 
+             key={item._id} 
+             item={item} 
+             selectedChat={selectedChat}
+             setSelectedChat={setSelectedChat}
+           />
           ))}
         </div>
      
