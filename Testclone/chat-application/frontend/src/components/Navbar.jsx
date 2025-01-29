@@ -9,7 +9,7 @@ export default function Navbar() {
   const sign_in_success = useSelector((state) => state.authReducer.sign_in_success);
 
   return (
-    <nav className="bg-primary-800 border-primary-200">
+    <nav className="bg-[#fff] shadow-md z-50 fixed top-0 w-full border-primary-200 border-x-2">
 
       {/* display only if user signin */}
       {sign_in_success && (

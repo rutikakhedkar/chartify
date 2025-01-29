@@ -7,6 +7,8 @@ import logo from '../../assets/white-logo.png';
 import { toast, ToastContainer } from 'react-toastify';
 import ScrollableFeed from 'react-scrollable-feed'
 import { sendMessage, setWebSocketReceivedMessage } from '../../redux/appReducer/action';
+import Popup from 'reactjs-popup';
+import EmojiPicker from "emoji-picker-react";
 
 export default function ChatBox() {
   const selectedUserForChat = useSelector((state) => state.appReducer.selectedUserForChat);
@@ -21,6 +23,7 @@ export default function ChatBox() {
   const webSocket = useSelector((state) => state.appReducer.webSocket)
 
   const [userInput, setUserInput] = useState("");
+  const [showEmojiPalette, setShowEmojiPalette] = useState(false);
   const dispatch = useDispatch();
 
   const handleSendMessage = () => {
@@ -36,6 +39,17 @@ export default function ChatBox() {
     }
   };
 
+
+  // Toggle emoji palette visibility
+  const handleEmojiClick = (e) => {
+    setShowEmojiPalette((prevState) => !prevState);
+  };
+
+  // Handle emoji selection
+  const handleSelectEmoji = (emojiObject) => {
+    setUserInput((prevInput) => prevInput + emojiObject.emoji);
+  };
+
   useEffect(() => {
     return () => {
       webSocket.off("message received");
@@ -48,6 +62,8 @@ export default function ChatBox() {
       webSocket.emit("new message", sendMessageObj);
       dispatch(setWebSocketReceivedMessage(getMessageData, sendMessageObj, notficationsMessages, selectedUserForChat));
     }
+
+
 
     if (!sendMessageProcessing && sendMessageFail && !sendMessageSuccess) {
       toast.error('Message not sent. Try again.', { position: toast.POSITION.BOTTOM_LEFT });
@@ -66,12 +82,14 @@ export default function ChatBox() {
     };
   }, [webSocket, selectedUserForChat, getMessageData]);
 
+
+
   if (!selectedUserForChat) {
     return (
-      <div className="flex flex-col h-4/5 mt-8 bg-primary-600 rounded-lg px-4 py-2 pb-4">
+      <div className="flex flex-col h-4/5 mt-8 bg-[#fff] rounded-lg px-4 py-2 pb-4">
         <div className="flex flex-col items-center justify-center h-full">
           <img className="w-20 h-20 mr-2" src={logo} alt="logo" />
-          <p className="text-white">Enjoy Your Chat!</p>
+          <p className="text-black">Enjoy Your Chat!</p>
         </div>
       </div>
     );
@@ -81,7 +99,7 @@ export default function ChatBox() {
     <>
       <ChatHeader />
 
-      <div className="flex flex-col h-4/5 bg-primary-800 rounded-bl-lg rounded-br-lg px-4 py-2 pb-4">
+      <div className="flex flex-col h-4/5 bg-primary-100 rounded-bl-lg rounded-br-lg px-4 py-2 pb-4">
         <div className="flex h-full flex-col max-h-[75vh] overflow-y-auto bg-primary-400  rounded-lg mb-2">
           {getMessageProcessing && (
             <div className="flex flex-col items-center justify-center h-full">
@@ -89,7 +107,6 @@ export default function ChatBox() {
               <span className="mr-2 text-white">Loading Messages</span>
             </div>
           )}
-
           <ScrollableFeed>
             {Array.isArray(getMessageData) && getMessageData.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full">
@@ -102,7 +119,6 @@ export default function ChatBox() {
               ))
             )}
           </ScrollableFeed>
-
         </div>
 
         <div className="relative mt-2">
@@ -114,9 +130,16 @@ export default function ChatBox() {
             className="border border-gray-300 bg-primary-50 text-primary-900 font-semibold sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 pr-10 "
             placeholder="Type your message..."
           />
-          <button type="button" className="absolute inset-y-0 right-10 px-8 py-2.7 text-primary-800 focus:outline-none">
-            <BsEmojiSmile className="w-5 h-5" />
-          </button>
+          <Popup trigger={<button type="button" className="absolute inset-y-0 right-10 px-8 py-2.7 text-primary-800 focus:outline-none">
+            <BsEmojiSmile className="w-5 h-5" onClick={handleEmojiClick} />
+          </button>} position="top right" arrow={false}
+            open={showEmojiPalette} // Use `showEmojiPalette` to control the Popup visibility
+            onClose={() => setShowEmojiPalette(false)}>
+            <div>{showEmojiPalette && (
+              <EmojiPicker onEmojiClick={handleSelectEmoji} />
+            )}</div>
+          </Popup>
+
           <button
             disabled={sendMessageProcessing}
             type="button"

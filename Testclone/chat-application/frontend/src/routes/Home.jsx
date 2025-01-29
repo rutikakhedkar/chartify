@@ -39,7 +39,7 @@ const Home = () => {
           <AllChats />
         )}
       </div>
-      <div className="w-full h-full lg:w-3/4 bg-primary-400 p-4">
+      <div className="w-full h-full lg:w-3/4 bg-[#fff] p-4">
         {/* Conditional rendering based on the socket connection status */}
         {isLoading ? (
           <p></p>
